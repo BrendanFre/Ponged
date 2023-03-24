@@ -1,11 +1,12 @@
 extends KinematicBody2D
-
+class_name ball
 signal goal_scored(scorer)
 
 onready var sprite = $Sprite
 onready var collider = $CollisionShape2D
+onready var ball_starting = $Sprite.get_global_position()
 
-var velocity: Vector2 = Vector2(200,0)
+var velocity: Vector2 = Vector2(0,0)
 
 
 # Declare member variables here. Examples:
@@ -27,9 +28,7 @@ func _physics_process(delta):
 	if collision_info:
 		velocity = velocity.bounce(collision_info.normal)
 
-func _on_Timer_timeout():
 
-	pass # Replace with function body.
 
 func _handle_goal(goal):
 	var goal_owner = goal
@@ -37,10 +36,8 @@ func _handle_goal(goal):
 		"Goal_Player1":
 			print("Player 2 scored!")
 			emit_signal("goal_scored", "player2")
-			self.queue_free()
 		"Goal_Player2":
 			print("Player 1 scored!")
 			emit_signal("goal_scored", "player1")
-			self.queue_free()
 	
 	
