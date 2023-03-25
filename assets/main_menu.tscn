@@ -1,0 +1,110 @@
+[gd_scene load_steps=11 format=2]
+
+[ext_resource path="res://assets/video/pong-0.5-intro.ogv" type="VideoStream" id=1]
+[ext_resource path="res://assets/VideoPlayer.gd" type="Script" id=2]
+[ext_resource path="res://assets/pong05logo.png" type="Texture" id=3]
+[ext_resource path="res://assets/fonts/FiraSans-ExtraBoldItalic.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://assets/buttons.png" type="Texture" id=5]
+[ext_resource path="res://assets/audio/Soft Relaxing Track (looped).wav" type="AudioStream" id=6]
+[ext_resource path="res://assets/main_menu.gd" type="Script" id=7]
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 4 )
+
+[sub_resource type="AtlasTexture" id=4]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 346, 143, 93, 69 )
+
+[sub_resource type="AtlasTexture" id=5]
+flags = 4
+atlas = ExtResource( 5 )
+region = Rect2( 346, 418, 93, 68 )
+
+[node name="MainMenu" type="MarginContainer"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 120.0
+margin_top = 80.0
+margin_right = 120.0
+margin_bottom = 80.0
+script = ExtResource( 7 )
+highlighted = Color( 1, 0, 0, 1 )
+
+[node name="Control" type="Control" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/HBoxContainer"]
+margin_right = 200.0
+margin_bottom = 281.0
+
+[node name="Version" type="Label" parent="Control/HBoxContainer/VBoxContainer"]
+margin_right = 200.0
+margin_bottom = 20.0
+custom_fonts/font = SubResource( 3 )
+text = "Version 0.5"
+
+[node name="MenuOptions" type="VBoxContainer" parent="Control/HBoxContainer/VBoxContainer"]
+margin_top = 24.0
+margin_right = 200.0
+margin_bottom = 281.0
+size_flags_vertical = 3
+custom_constants/separation = 30
+alignment = 1
+
+[node name="Logo" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/MenuOptions"]
+margin_right = 200.0
+margin_bottom = 60.0
+texture = ExtResource( 3 )
+
+[node name="New Game" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/MenuOptions"]
+margin_top = 90.0
+margin_right = 200.0
+margin_bottom = 159.0
+texture = SubResource( 4 )
+
+[node name="Exit" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/MenuOptions"]
+margin_top = 189.0
+margin_right = 200.0
+margin_bottom = 257.0
+texture = SubResource( 5 )
+
+[node name="VideoPlayer" type="VideoPlayer" parent="Control/HBoxContainer"]
+margin_left = 204.0
+margin_right = 630.0
+margin_bottom = 281.0
+rect_min_size = Vector2( 426, 140 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+stream = ExtResource( 1 )
+volume_db = -80.0
+autoplay = true
+script = ExtResource( 2 )
+
+[node name="CenterContainer2" type="CenterContainer" parent="Control/HBoxContainer"]
+margin_left = 634.0
+margin_right = 634.0
+margin_bottom = 281.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Developer" type="Label" parent="."]
+margin_top = 290.0
+margin_right = 1024.0
+margin_bottom = 310.0
+custom_fonts/font = SubResource( 3 )
+text = "by Brendan Freeman"
+
+[node name="backgroundMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+autoplay = true
+
+[connection signal="mouse_entered" from="Control/HBoxContainer/VBoxContainer/MenuOptions/New Game" to="." method="_on_New_Game_mouse_entered"]
+[connection signal="mouse_exited" from="Control/HBoxContainer/VBoxContainer/MenuOptions/New Game" to="." method="_on_New_Game_mouse_exited"]
+[connection signal="mouse_entered" from="Control/HBoxContainer/VBoxContainer/MenuOptions/Exit" to="." method="_on_Exit_mouse_entered"]
+[connection signal="mouse_exited" from="Control/HBoxContainer/VBoxContainer/MenuOptions/Exit" to="." method="_on_Exit_mouse_exited"]

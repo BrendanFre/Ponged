@@ -6,6 +6,14 @@ onready var ball = get_tree().get_nodes_in_group("ball_group")[0]
 onready var ai = $ai_manager/Player2
 onready var player2_paddle_sprite = $ai_manager/Player2/Sprite
 onready var game_timer = $game_timer
+onready var player_one_score = $gui/player1_score
+onready var player_two_score = $gui/player2_score
+
+enum player {
+	PLAYER_1,
+	PLAYER_2,
+	COMPUTER,
+}
 
 
 var player1_score: int = 0
@@ -13,6 +21,7 @@ var player2_score: int = 0
 var player_winner: String
 
 signal game_over(winner)
+signal point_scored(scorer, score)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -40,10 +49,15 @@ func _add_score(goal_scored_by):
 	match goal_scored_by:
 		"player1":
 			player1_score += 1
-			winner = "Player 1"
+			winner = "player_1"
+			player_one_score._update_gui(player1_score)
+#			player_one_score.text = str(player1_score)
+			
 		"player2":
 			player2_score += 1
-			winner = "Player 2"
+			winner = "player_2"
+#			player_two_score.text = player2_score
+			player_two_score._update_gui(player2_score)
 	
 	check_gameover(player1_score, player2_score)
 	
@@ -54,17 +68,16 @@ func _add_score(goal_scored_by):
 	if player1_score == 3 or player2_score == 3:
 		emit_signal("game_over", winner)
 		
-	print("scored by ", goal_scored_by, " Total Score: Player 1 ", player1_score, " : ", player2_score, " Player 2")
 
 
 func _on_game_timer_timeout():
 	print("timer finished")
 	if player1_score <= player2_score:
 		ball.velocity= Vector2(-200,0)
-		print("Player has least or equal points")
+
 	else:
 		ball.velocity = Vector2(200,0)
-		print("Player has most points")
+
 
 func check_gameover(player1_score, player2_score):
 	if player1_score == 3:
@@ -75,4 +88,4 @@ func check_gameover(player1_score, player2_score):
 		player_winner = "Player 2"
 	else:
 		return
-	print("Winner, winner, chicken dinner!")
+

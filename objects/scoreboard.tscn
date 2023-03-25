@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://assets/pong_theme.tres" type="Theme" id=1]
+[ext_resource path="res://objects/scoreboard.gd" type="Script" id=2]
+[ext_resource path="res://assets/fonts/FiraSans-ExtraBoldItalic.ttf" type="DynamicFontData" id=3]
+
+[sub_resource type="DynamicFont" id=2]
+size = 74
+use_filter = true
+extra_spacing_char = 17
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 74
+use_filter = true
+font_data = ExtResource( 3 )
+
+[node name="player1_score" type="Panel"]
+margin_left = 66.0
+margin_top = -64.0
+margin_right = 1066.0
+margin_bottom = 11.0
+rect_scale = Vector2( 0.167191, 0.865412 )
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+margin_left = 125.605
+margin_top = -6.93311
+margin_right = 1125.6
+margin_bottom = 93.0669
+alignment = 2
+
+[node name="player_name" type="RichTextLabel" parent="HBoxContainer"]
+margin_right = 498.0
+margin_bottom = 100.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_horizontal = 3
+size_flags_vertical = 13
+theme = ExtResource( 1 )
+theme_type_variation = "player_name"
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 2 )
+text = "PLAYER 1"
+scroll_active = false
+
+[node name="player_score" type="RichTextLabel" parent="HBoxContainer"]
+margin_left = 502.0
+margin_right = 1000.0
+margin_bottom = 100.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+custom_fonts/normal_font = SubResource( 3 )
+text = "0"
+scroll_active = false

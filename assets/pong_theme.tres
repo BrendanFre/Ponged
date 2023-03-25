@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=8 format=2]
+
+[ext_resource path="res://assets/fonts/SpaceGrotesk[wght].ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://assets/GameGUIEasyOneApart.png" type="Texture" id=2]
+[ext_resource path="res://assets/9.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 530, 172 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 2 )
+region_rect = Rect2( 1080, 1179, 871, 290 )
+
+[sub_resource type="DynamicFont" id=4]
+outline_size = 5
+font_data = ExtResource( 1 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 83
+outline_color = Color( 0.862745, 0.0470588, 0.0470588, 1 )
+use_mipmaps = true
+font_data = ExtResource( 1 )
+
+[resource]
+Panel/styles/panel = SubResource( 3 )
+PanelContainer/styles/panel = SubResource( 2 )
+RichTextLabel/colors/default_color = Color( 1, 0, 0, 1 )
+RichTextLabel/fonts/bold_font = SubResource( 4 )
+RichTextLabel/fonts/normal_font = SubResource( 1 )
