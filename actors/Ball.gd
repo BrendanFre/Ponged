@@ -5,6 +5,7 @@ signal goal_scored(scorer)
 onready var sprite = $Sprite
 onready var collider = $CollisionShape2D
 onready var ball_starting = $Sprite.get_global_position()
+onready var sound = $pop
 
 var velocity: Vector2 = Vector2(0,0)
 var max_speed = 600
@@ -27,6 +28,7 @@ func _ready():
 func _physics_process(delta):
 	var collision_info = move_and_collide(velocity * delta)
 	if collision_info:
+		sound.play()
 		velocity = velocity.bounce(collision_info.normal) * 1.1
 		velocity = velocity.clamped(max_speed)
 #		velocity.x = clamp(velocity.x, 1, 500)

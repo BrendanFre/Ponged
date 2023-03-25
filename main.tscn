@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://icon.png" type="Texture" id=1]
 [ext_resource path="res://actors/Player1.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://actors/Player2.tscn" type="PackedScene" id=6]
 [ext_resource path="res://assets/GameGUIEasyOneApart.png" type="Texture" id=7]
 [ext_resource path="res://actors/ai.tscn" type="PackedScene" id=8]
+[ext_resource path="res://assets/audio/Casual Arcade Track #1 Version 2 (looped).wav" type="AudioStream" id=9]
 [ext_resource path="res://objects/scoreboard.tscn" type="PackedScene" id=10]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
@@ -131,5 +132,9 @@ margin_top = 1.0
 margin_right = 1784.0
 margin_bottom = 76.0
 ownership = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+volume_db = -25.255
 
 [connection signal="timeout" from="game_timer" to="." method="_on_game_timer_timeout"]

@@ -53,6 +53,7 @@ text = "Version 0.5"
 margin_top = 24.0
 margin_right = 200.0
 margin_bottom = 281.0
+size_flags_horizontal = 3
 size_flags_vertical = 3
 custom_constants/separation = 30
 alignment = 1
@@ -62,17 +63,23 @@ margin_right = 200.0
 margin_bottom = 60.0
 texture = ExtResource( 3 )
 
-[node name="New Game" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="New Game" type="TextureButton" parent="Control/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_top = 90.0
-margin_right = 200.0
+margin_right = 93.0
 margin_bottom = 159.0
-texture = SubResource( 4 )
+rect_min_size = Vector2( 93, 69 )
+size_flags_horizontal = 2
+size_flags_vertical = 3
+texture_normal = SubResource( 4 )
+expand = true
 
-[node name="Exit" type="TextureRect" parent="Control/HBoxContainer/VBoxContainer/MenuOptions"]
+[node name="Exit" type="TextureButton" parent="Control/HBoxContainer/VBoxContainer/MenuOptions"]
 margin_top = 189.0
 margin_right = 200.0
 margin_bottom = 257.0
-texture = SubResource( 5 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+texture_normal = SubResource( 5 )
 
 [node name="VideoPlayer" type="VideoPlayer" parent="Control/HBoxContainer"]
 margin_left = 204.0
@@ -106,5 +113,6 @@ autoplay = true
 
 [connection signal="mouse_entered" from="Control/HBoxContainer/VBoxContainer/MenuOptions/New Game" to="." method="_on_New_Game_mouse_entered"]
 [connection signal="mouse_exited" from="Control/HBoxContainer/VBoxContainer/MenuOptions/New Game" to="." method="_on_New_Game_mouse_exited"]
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/MenuOptions/New Game" to="." method="_on_New_Game_pressed"]
 [connection signal="mouse_entered" from="Control/HBoxContainer/VBoxContainer/MenuOptions/Exit" to="." method="_on_Exit_mouse_entered"]
 [connection signal="mouse_exited" from="Control/HBoxContainer/VBoxContainer/MenuOptions/Exit" to="." method="_on_Exit_mouse_exited"]

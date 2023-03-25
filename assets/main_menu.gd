@@ -23,3 +23,7 @@ func _on_Exit_mouse_entered():
 func _on_Exit_mouse_exited():
 	exit.modulate = standard
 	pass # Replace with function body.
+
+
+func _on_New_Game_pressed():
+	get_tree().change_scene("res://main.tscn")
