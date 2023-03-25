@@ -83,9 +83,11 @@ func check_gameover(player1_score, player2_score):
 	if player1_score == 3:
 		print("Player 1 is the winner!")
 		player_winner = "Player 1"
+		get_tree().change_scene("res://scenes/game_over.tscn")
 	elif player2_score == 3:
 		print("Player 2 is the winner!")
 		player_winner = "Player 2"
+		get_tree().change_scene("res://scenes/game_over.tscn")
 	else:
 		return
 

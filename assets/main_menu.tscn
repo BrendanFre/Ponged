@@ -93,12 +93,65 @@ volume_db = -80.0
 autoplay = true
 script = ExtResource( 2 )
 
-[node name="CenterContainer2" type="CenterContainer" parent="Control/HBoxContainer"]
+[node name="Controls_key" type="VBoxContainer" parent="Control/HBoxContainer"]
 margin_left = 634.0
-margin_right = 634.0
+margin_right = 687.0
+margin_bottom = 281.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/Controls_key"]
+margin_right = 53.0
+margin_bottom = 14.0
+text = "Controls"
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/Controls_key"]
+margin_top = 18.0
+margin_right = 53.0
+margin_bottom = 32.0
+text = "W"
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/Controls_key"]
+margin_top = 36.0
+margin_right = 53.0
+margin_bottom = 50.0
+text = "S"
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/Controls_key"]
+margin_top = 54.0
+margin_right = 53.0
 margin_bottom = 281.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
+text = "Esc"
+
+[node name="Controls_key2" type="VBoxContainer" parent="Control/HBoxContainer"]
+margin_left = 691.0
+margin_right = 732.0
+margin_bottom = 281.0
+
+[node name="Label" type="Label" parent="Control/HBoxContainer/Controls_key2"]
+margin_right = 41.0
+margin_bottom = 14.0
+text = "Action"
+
+[node name="Label2" type="Label" parent="Control/HBoxContainer/Controls_key2"]
+margin_top = 18.0
+margin_right = 41.0
+margin_bottom = 32.0
+text = "Up"
+
+[node name="Label3" type="Label" parent="Control/HBoxContainer/Controls_key2"]
+margin_top = 36.0
+margin_right = 41.0
+margin_bottom = 50.0
+text = "Down"
+
+[node name="Label4" type="Label" parent="Control/HBoxContainer/Controls_key2"]
+margin_top = 54.0
+margin_right = 41.0
+margin_bottom = 281.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "Pause"
 
 [node name="Developer" type="Label" parent="."]
 margin_top = 290.0
@@ -116,3 +169,4 @@ autoplay = true
 [connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/MenuOptions/New Game" to="." method="_on_New_Game_pressed"]
 [connection signal="mouse_entered" from="Control/HBoxContainer/VBoxContainer/MenuOptions/Exit" to="." method="_on_Exit_mouse_entered"]
 [connection signal="mouse_exited" from="Control/HBoxContainer/VBoxContainer/MenuOptions/Exit" to="." method="_on_Exit_mouse_exited"]
+[connection signal="pressed" from="Control/HBoxContainer/VBoxContainer/MenuOptions/Exit" to="." method="_on_Exit_pressed"]

@@ -27,3 +27,8 @@ func _on_Exit_mouse_exited():
 
 func _on_New_Game_pressed():
 	get_tree().change_scene("res://main.tscn")
+	print("trying")
+
+
+func _on_Exit_pressed():
+	get_tree().quit()
